@@ -2,7 +2,7 @@
 // @name        链接附加提取码
 // @author      billypon
 // @description 生成分享链接时自动附加提取码
-// @version     1.0.0
+// @version     1.0.1
 // @namespace   http://www.canaansky.com/
 // @match       http://pan.baidu.com/disk/*
 // @match       https://pan.baidu.com/disk/*
@@ -25,6 +25,8 @@ function listen(dialog, button, url, code) {
 				console.info("elements:", button, url, code);
 				button.addEventListener("click", function () {
 					console.info("url:", url.value);
+					if (!code.value)
+						return;
 					console.info("code", code.value);
 					setTimeout(function () {
 						GM_setClipboard(url.value + "#" + code.value);
