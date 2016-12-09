@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        分享链接自动跳转
+// @name        链接自动跳转
 // @author      billypon
 // @description 访问分享链接时自动跳转至下载页面或验证页面
 // @version     1.0.0
