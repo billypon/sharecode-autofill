@@ -2,7 +2,7 @@
 // @name        链接自动跳转
 // @author      billypon
 // @description 访问分享链接时自动跳转至下载页面或验证页面
-// @version     1.2.1
+// @version     1.2.2
 // @namespace   http://www.canaansky.com/
 // @match       http://158pan.cn/file-*.html
 // @match       http://66yp.cc/file-*.html
@@ -32,30 +32,30 @@ function ajax(url, callback) {
 	request.send();
 }
 
-function link(url) {
-	var body = document.body, a = document.createElement("a");
-	a.textContent = "download";
-	a.href = url;
-	body.insertBefore(a, body.children[0]);
-	return a;
+function createLink(url) {
+	var body = document.body, link = document.createElement("a");
+	link.textContent = "download";
+	link.href = url;
+	body.insertBefore(link, body.children[0]);
+	return link;
 }
 
-function jump(x, y, z) {
-	if (!x && x !== null)
-		x = "download";
-	if (!y)
-		y = "down";
-	if (!z)
-		z = "file";
-	var url = path;
-	if (x) {
-		ajax(url.replace(z, y), function() {
-			var a = link(url.replace(z, x));
-			a.click();
+function jump(replace_final, replace, search) {
+	if (!final && final !== null)
+		final = "download";
+	if (!replace)
+		replace = "down";
+	if (!search)
+		search = "file";
+	var url = path.replace(search, replace);
+	if (final) {
+		ajax(url, function() {
+			var link = createLink(url.replace(replace, final));
+			link.click();
 		});
 	} else {
-		var a = link(url.replace(z, y));
-		a.click();
+		var link = createLink(url);
+		link.click();
 	}
 }
 
@@ -71,74 +71,18 @@ switch (domain) {
 		jump(null);
 		brea;
 	case "fxpan.com":
-		var a = document.querySelector(".d3 a");
-		if (a) {
-			console.info("link:", a);
-			location = a.href;
-		}
+		var link = document.querySelector(".d3 a");
+		console.info("link:", link);
+		if (link)
+			location = link.href;
 		break;
 	case "dfpan.com":
 		if (startsWith(path, "/file/down/")) {
-			setTimeout(function () {
-				var button = document.querySelector("#downbtn a");
-				console.info("button:", button);
-				if (button)
-					button.click();
-			}, 1000);
+			downSubmit(1);
 		}
 		else if (startsWith(path, "/fs/") || startsWith(path, "/file/")) {
-			// remove dialog
-			var dialog = document.querySelectorAll("#skyblue_dlg2, #login_registBox2");
-			console.info("dialog:", dialog);
-			if (dialog.length) {
-				for (var i = 0; i < dialog.length; i++) {
-					dialog[i].remove();
-				}
-			}
-
-			// show verify code
-			var button = document.querySelector("#inputDownWait .slow_button");
-			console.info("button wait:", button);
-			if (!button)
-				return;
-			button.click();
-
-			// handle button click
-			var code = document.querySelector("#vcode");
-			console.info("code:", code);
-			button = document.querySelector("#vcode_th .slow_button");
-			console.info("button submit:", button);
-			var a = document.querySelector("#premium_link");
-			console.info("link:", a);
-			if (!(code && button && link))
-				return;
-			button.onclick = "";
-			button.addEventListener("click", function () {
-				// create link
-				var array = a.onclick.toString().split("','");
-				var url = "/file/down/" + array[3] + array[4].split("'")[0] + "/" + code.value + ".html";
-				a = link(url);
-
-				// show wait
-				var div = document.querySelector("#premium_div");
-				console.info("div:", div);
-				if (div)
-					div.style.display = "none";
-				div = document.querySelector("#wait_div");
-				console.info("wait div:", div);
-				var span = document.querySelector("#wait_span");
-				console.info("wait span:", span);
-				if (!(div && span))
-					return;
-				div.style.display = "";
-				interval = 29;
-				setInterval(function () {
-					// jump
-					span.textContent = --interval;
-					if (!interval)
-						a.click();
-				}, 1000)
-			});
+			dialog_Open2 = function () { };
+			show_vcode();
 		}
 		break;
 }
