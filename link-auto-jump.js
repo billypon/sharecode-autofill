@@ -2,7 +2,7 @@
 // @name        链接自动跳转
 // @author      billypon
 // @description 访问分享链接时自动跳转至下载页面或验证页面
-// @version     1.2.0
+// @version     1.2.1
 // @namespace   http://www.canaansky.com/
 // @match       http://158pan.cn/file-*.html
 // @match       http://66yp.cc/file-*.html
@@ -12,6 +12,9 @@
 // @run-at      document-idle
 // @grant       none
 // ==/UserScript==
+
+var domain = location.hostname.match(/\w+\.\w+$/)[0], path=location.pathname;
+console.info("domain:", domain);
 
 function ajax(url, callback) {
 	console.info("ajax request:", url);
@@ -44,7 +47,7 @@ function jump(x, y, z) {
 		y = "down";
 	if (!z)
 		z = "file";
-	var url = location.pathname;
+	var url = path;
 	if (x) {
 		ajax(url.replace(z, y), function() {
 			var a = link(url.replace(z, x));
@@ -60,8 +63,6 @@ function startsWith(string, prefix) {
 	return string.slice(0, prefix.length) == prefix;
 }
 
-var domain = location.hostname.match(/\w+\.\w+$/)[0];
-console.info("domain:", domain);
 switch (domain) {
 	case "158pan.cn":
 		jump();
