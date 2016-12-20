@@ -2,7 +2,7 @@
 // @name        链接自动跳转
 // @author      billypon
 // @description 访问分享链接时自动跳转至下载页面或验证页面
-// @version     1.3.0
+// @version     1.3.1
 // @namespace   http://www.canaansky.com/
 // @match       http://158pan.cn/file-*.html
 // @match       http://66yp.cc/file-*.html
@@ -41,7 +41,7 @@ function createLink(url) {
 	return link;
 }
 
-function jump(replace_final, replace, search) {
+function jump(final, replace, search) {
 	if (!final && final !== null)
 		final = "download";
 	if (!replace)
