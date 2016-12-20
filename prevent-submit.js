@@ -2,7 +2,7 @@
 // @name        提交截拦
 // @author      billypon
 // @description 阻止某些输入框按回车时自动提交表单，改为点击默认按钮
-// @version     1.1.0
+// @version     1.1.1
 // @namespace   http://www.canaansky.com/
 // @match       http://66yp.cc/down-*.html
 // @match       http://www.123wzwp.com/down-*.html
@@ -18,6 +18,7 @@ if (!(input && button))
 input.addEventListener("keypress", function (event) {
 	if (event.keyCode != 13)
 		return;
+	console.info("prevent!");
 	button.click();
 	event.preventDefault();
 });
