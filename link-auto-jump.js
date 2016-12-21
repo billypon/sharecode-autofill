@@ -2,11 +2,12 @@
 // @name        链接自动跳转
 // @author      billypon
 // @description 访问分享链接时自动跳转至下载页面或验证页面
-// @version     1.3.1
+// @version     1.4.0
 // @namespace   http://www.canaansky.com/
 // @match       http://158pan.cn/file-*.html
 // @match       http://66yp.cc/file-*.html
 // @match       http://www.123wzwp.com/file-*.html
+// @match       http://www.fmdisk.com/file-*.html
 // @match       http://www.fxpan.com/downhtml/*.php
 // @match       http://*.dfpan.com/fs/*
 // @match       http://*.dfpan.com/file/*
@@ -71,7 +72,10 @@ switch (domain) {
 	case "66yp.cc":
 	case "123wzwp.com":
 		jump(null);
-		brea;
+		break;
+	case "fmdisk.com":
+		jump(null, "down2");
+		break;
 	case "fxpan.com":
 		var link = document.querySelector(".d3 a");
 		console.info("link:", link);
