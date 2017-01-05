@@ -2,14 +2,14 @@
 // @name        链接自动跳转
 // @author      billypon
 // @description 访问分享链接时自动跳转至下载页面或验证页面
-// @version     1.6.1
+// @version     1.6.2
 // @namespace   http://www.canaansky.com/
 // @match       http://158pan.cn/file-*.html
 // @match       http://66yp.cc/file-*.html
 // @match       http://www.123wzwp.com/file-*.html
 // @match       http://www.wwp5.com/file-*.html
 // @match       http://pan.789xz.com/file-*.html
-// @match       http://www.fmdisk.com/file-*.html
+// @match       http://www.feimaott.com/file-*.html
 // @match       http://www.fxpan.com/downhtml/*.html
 // @match       http://*.dfpan.com/fs/*
 // @match       http://*.dfpan.com/file/*
@@ -77,8 +77,16 @@ switch (domain) {
 	case "789xz.com":
 		jump(null);
 		break;
-	case "fmdisk.com":
-		jump(null, "down2");
+	case "feimaott.com":
+		if (startsWith(path, "/file-")) {
+			jump(null, "down2");
+		} else {
+			var elements = document.querySelectorAll("#down_box, #dl_addr");
+			console.info("elements:", elements);
+			[].forEach.call(elements, function (element) {
+				element.removeAttribute("style");
+			});
+		}
 		break;
 	case "fxpan.com":
 		var link = document.querySelector(".d3 a");
