@@ -2,7 +2,7 @@
 // @name        提交截拦
 // @author      billypon
 // @description 阻止某些输入框按回车时自动提交表单，改为点击默认按钮
-// @version     1.4.1
+// @version     1.4.2
 // @namespace   http://www.canaansky.com/
 // @match       http://www.123wzwp.com/down-*.html
 // @match       http://66yp.cc/down-*.html
@@ -14,12 +14,12 @@
 // ==/UserScript==
 
 var input = document.querySelector("#code"), button = document.querySelector("#s1");
-console.info("input:", input);
-console.info("button:", button);
+console.debug("input", input);
+console.debug("button", button);
 if (!(input && button))
 	return;
 input.addEventListener("keydown", function (event) {
-	console.info("keyCode:", event.keyCode);
+	console.debug("keyCode", event.keyCode);
 	if (event.keyCode != 13)
 		return;
 	button.click();

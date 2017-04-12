@@ -2,7 +2,7 @@
 // @name        链接附加提取码
 // @author      billypon
 // @description 生成分享链接时自动附加提取码
-// @version     1.0.1
+// @version     1.0.2
 // @namespace   http://www.canaansky.com/
 // @match       http://pan.baidu.com/disk/*
 // @match       https://pan.baidu.com/disk/*
@@ -15,19 +15,19 @@ function listen(dialog, button, url, code) {
 		var target = event.target, list = target.classList;
 		if (!list || !list.contains(dialog))
 			return;
-		console.info("dialog:", target);
+		console.debug("dialog", target);
 		removeEventListener("DOMNodeInserted", handler);
 		setTimeout(function () {
 			button = target.querySelector(button);
 			url = target.querySelector(url);
 			code = target.querySelector(code);
 			if (button && url && code) {
-				console.info("elements:", button, url, code);
+				console.debug("elements", button, url, code);
 				button.addEventListener("click", function () {
-					console.info("url:", url.value);
+					console.debug("url", url.value);
 					if (!code.value)
 						return;
-					console.info("code", code.value);
+					console.debug("code", code.value);
 					setTimeout(function () {
 						GM_setClipboard(url.value + "#" + code.value);
 					});
@@ -40,7 +40,7 @@ function listen(dialog, button, url, code) {
 }
 
 var domain = location.hostname.match(/\w+\.\w+$/)[0];
-console.info("domain:", domain);
+console.debug("domain", domain);
 switch (domain) {
 	case "baidu.com":
 		listen("dialog-share", "#copyShare", ".share-url", ".share-password");

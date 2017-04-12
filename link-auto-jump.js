@@ -2,7 +2,7 @@
 // @name        链接自动跳转
 // @author      billypon
 // @description 访问分享链接时自动跳转至下载页面或验证页面
-// @version     1.7.0
+// @version     1.7.1
 // @namespace   http://www.canaansky.com/
 // @match       http://158pan.cn/file-*.html
 // @match       http://66yp.cc/file-*.html
@@ -18,10 +18,10 @@
 // ==/UserScript==
 
 var domain = location.hostname.match(/\w+\.\w+$/)[0], path=location.pathname;
-console.info("domain:", domain);
+console.debug("domain", domain);
 
 function ajax(url, callback) {
-	console.info("ajax request:", url);
+	console.debug("ajax request", url);
 	var request = new XMLHttpRequest();
 	request.onreadystatechange = function (event) {
 		var target = event.currentTarget;
@@ -30,7 +30,7 @@ function ajax(url, callback) {
 		if (target.status == 200)
 			callback(target.responseText);
 		else
-			console.error("ajax response:", target.status, target.responseText);
+			console.error("ajax response", target.status, target.responseText);
 	};
 	request.open("GET", url);
 	request.send();
@@ -92,7 +92,7 @@ switch (domain) {
 			jump(null, "down2");
 		} else {
 			var elements = document.querySelectorAll("#down_box, #dl_addr");
-			console.info("elements:", elements);
+			console.debug("elements", elements);
 			[].forEach.call(elements, function (element) {
 				element.removeAttribute("style");
 			});
@@ -100,7 +100,7 @@ switch (domain) {
 		break;
 	case "fxpan.com":
 		var link = document.querySelector(".d3 a");
-		console.info("link:", link);
+		console.debug("link", link);
 		if (link)
 			location = link.href;
 		break;
