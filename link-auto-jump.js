@@ -2,17 +2,17 @@
 // @name        链接自动跳转
 // @author      billypon
 // @description 访问分享链接时自动跳转至下载页面或验证页面
-// @version     1.7.1
+// @version     1.7.2
 // @namespace   http://www.canaansky.com/
+// @match       http://www.123wzwp.com/file-*.html
 // @match       http://158pan.cn/file-*.html
 // @match       http://66yp.cc/file-*.html
-// @match       http://www.123wzwp.com/file-*.html
-// @match       http://www.wwp5.com/file-*.html
 // @match       http://pan.789xz.com/file-*.html
+// @match       http://*.dfpan.com/*
 // @match       https://www.feemoo.com/*.html
 // @match       http://www.fxpan.com/downhtml/*.html
-// @match       http://*.dfpan.com/*
 // @match       http://www.sju.wang/file-*.html
+// @match       http://www.wwp5.com/file-*.html
 // @run-at      document-idle
 // @grant       none
 // ==/UserScript==
