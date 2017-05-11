@@ -2,14 +2,14 @@
 // @name        提交截拦
 // @author      billypon
 // @description 阻止某些输入框按回车时自动提交表单，改为点击默认按钮
-// @version     1.6.3
+// @version     1.7.0
 // @namespace   http://www.canaansky.com/
-// @match       http://www.123wzwp.com/down-*.html
-// @match       http://www.678pan.com/down-*.html
-// @match       http://www.feemoo.com/fmdown.php?*
-// @match       http://hiyp.cc/down-*.html
-// @match       http://www.sju.wang/down-*.html
-// @match       http://www.wwp5.com/down-*.html
+// @match       *://www.123wzwp.com/*
+// @match       *://www.678pan.com/*
+// @match       *://www.feemoo.com/*
+// @match       *://hiyp.cc/*
+// @match       *://www.sju.wang/*
+// @match       *://www.wwp5.com/*
 // @run-at      document-idle
 // @grant       none
 // ==/UserScript==
@@ -49,11 +49,20 @@ function listen(dialog, input, button) {
 	addEventListener("DOMNodeInserted", handler);
 }
 
+function startsWith(search, string) {
+	search = search || "/down-";
+	return (string || path).slice(0, search.length) == search;
+}
+
 switch (domain) {
 	case "feemoo.com":
-		listen("layui-layer", "#very_btn", "#vecysmt");
+		if (startsWith("/fmdown.php")) {
+			listen("layui-layer", "#very_btn", "#vecysmt");
+		}
 		break;
 	default:
-		prevent("#code", "#s1");
+		if (startsWith()) {
+			prevent("#code", "#s1");
+		}
 }
 
