@@ -2,7 +2,7 @@
 // @name        提交截拦
 // @author      billypon
 // @description 阻止某些输入框按回车时自动提交表单，改为点击默认按钮
-// @version     1.6.2
+// @version     1.6.3
 // @namespace   http://www.canaansky.com/
 // @match       http://www.123wzwp.com/down-*.html
 // @match       http://www.678pan.com/down-*.html
@@ -42,7 +42,9 @@ function listen(dialog, input, button) {
 			return;
 		console.debug("dialog", target);
 		removeEventListener("DOMNodeInserted", handler);
-		prevent(input, button, target);
+		setTimeout(function () {
+			prevent(input, button, target);
+		});
 	}
 	addEventListener("DOMNodeInserted", handler);
 }
