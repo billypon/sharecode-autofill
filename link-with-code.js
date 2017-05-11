@@ -2,10 +2,9 @@
 // @name        链接附加提取码
 // @author      billypon
 // @description 生成分享链接时自动附加提取码
-// @version     1.0.2
+// @version     1.0.3
 // @namespace   http://www.canaansky.com/
-// @match       http://pan.baidu.com/disk/*
-// @match       https://pan.baidu.com/disk/*
+// @match       *://pan.baidu.com/disk/*
 // @run-at      document-idle
 // @grant       GM_setClipboard
 // ==/UserScript==
