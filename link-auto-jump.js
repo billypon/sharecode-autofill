@@ -2,7 +2,7 @@
 // @name        链接自动跳转
 // @author      billypon
 // @description 访问分享链接时自动跳转至下载页面或验证页面
-// @version     1.8.0
+// @version     1.8.1
 // @namespace   http://www.canaansky.com/
 // @match       http://www.123wzwp.com/file-*.html
 // @match       http://www.678pan.com/file-*.html
@@ -89,10 +89,10 @@ function startsWith(string, prefix) {
 
 switch (domain) {
 	case "158pan.cn":
-	case "678pan.com":
 		jump();
 		break;
 	case "123wzwp.com":
+	case "678pan.com":
 	case "789xz.com":
 	case "wwp5.com":
 	case "sju.wang":
