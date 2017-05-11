@@ -2,12 +2,12 @@
 // @name        百度网盘助手
 // @author      billypon
 // @description 直接下载文件及取消大文件限制
-// @version     0.9.23
+// @version     0.9.23.1
 // @namespace   http://www.canaansky.com/
-// @match       http://pan.baidu.com/home/*
-// @match       https://pan.baidu.com/home/*
 // @match       http://pan.baidu.com/disk/*
 // @match       https://pan.baidu.com/disk/*
+// @match       http://pan.baidu.com/share/*
+// @match       https://pan.baidu.com/share/*
 // @run-at      document-idle
 // @grant       none
 // ==/UserScript==
