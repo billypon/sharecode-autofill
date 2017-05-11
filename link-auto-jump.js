@@ -2,21 +2,18 @@
 // @name        链接自动跳转
 // @author      billypon
 // @description 访问分享链接时自动跳转至下载页面或验证页面
-// @version     1.8.2
+// @version     1.9.0
 // @namespace   http://www.canaansky.com/
-// @match       http://www.123wzwp.com/file-*.html
-// @match       http://www.678pan.com/file-*.html
-// @match       http://158pan.cn/file-*.html
-// @match       http://pan.789xz.com/file-*.html
-// @match       http://*.dfpan.com/*
-// @match       http://www.feemoo.com/file-*.html
-// @match       http://www.feemoo.com/fmdown.php?*
-// @match       http://www.fxpan.com/share/*
-// @match       http://www.fxpan.com/downhtml/*.html
-// @match       http://www.fxpan.com/down.php?*
-// @match       http://hiyp.cc/file-*.html
-// @match       http://www.sju.wang/file-*.html
-// @match       http://www.wwp5.com/file-*.html
+// @match       *://www.123wzwp.com/*
+// @match       *://www.678pan.com/*
+// @match       *://158pan.cn/*
+// @match       *://pan.789xz.com/*
+// @match       *://*.dfpan.com/*
+// @match       *://www.feemoo.com/*
+// @match       *://www.fxpan.com/*
+// @match       *://hiyp.cc/*
+// @match       *://www.sju.wang/*
+// @match       *://www.wwp5.com/*
 // @run-at      document-idle
 // @grant       none
 // ==/UserScript==
@@ -26,7 +23,7 @@ console.debug("domain", domain);
 
 function ajax(url, callback) {
 	console.debug("ajax request", url);
-	var request = new XMLHttpRequest();
+	var request = new XML*Request();
 	request.onreadystatechange = function (event) {
 		var target = event.currentTarget;
 		if (target.readyState != 4)
@@ -83,13 +80,16 @@ function jumpFromLink(link, click) {
 		location = link.href;
 }
 
-function startsWith(string, prefix) {
-	return string.slice(0, prefix.length) == prefix;
+function startsWith(search, string) {
+	search = search || "/file-";
+	return (string || path).slice(0, search.length) == search;
 }
 
 switch (domain) {
 	case "158pan.cn":
-		jump();
+		if (startsWith()) {
+			jump();
+		}
 		break;
 	case "123wzwp.com":
 	case "678pan.com":
@@ -97,20 +97,22 @@ switch (domain) {
 	case "hiyp.cc":
 	case "wwp5.com":
 	case "sju.wang":
-		jump(null);
+		if (startsWith()) {
+			jump(null);
+		}
 		break;
 	case "dfpan.com":
-		if (startsWith(path, "/file/down/")) {
+		if (startsWith("/file/down/")) {
 			downSubmit(1);
-		} else if (startsWith(path, "/fs/") || startsWith(path, "/file/")) {
+		} else if (startsWith("/fs/") || startsWith("/file/")) {
 			dialog_Open2 = function () { };
 			show_vcode();
 		}
 		break;
 	case "feemoo.com":
-		if (startsWith(path, "/file-")) {
+		if (startsWith()) {
 			jumpFromLink(".ndown_out");
-		} else if (startsWith(path, "/fmdown.php")) {
+		} else if (startsWith("/fmdown.php")) {
 			var button = document.querySelector("#combtn");
 			console.debug("button", button);
 			if (button)
@@ -118,14 +120,14 @@ switch (domain) {
 		}
 		break;
 	case "fxpan.com":
-		if (startsWith(path, "/share/")) {
+		if (startsWith("/share/")) {
 			var button = document.querySelector("#popup-submit");
 			console.debug("button", button);
 			if (button)
 				setTimeout(function () { button.click() }, 1000);
-		} else if (startsWith(path, "/downhtml/")) {
+		} else if (startsWith("/downhtml/")) {
 			jumpFromLink(".d3 a");
-		} else {
+		} else if (startsWith("/down.php")) {
 			var time = document.querySelector("#time");
 			console.debug("time", time);
 			if (time)
