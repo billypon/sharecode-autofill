@@ -2,7 +2,7 @@
 // @name        提交截拦
 // @author      billypon
 // @description 阻止某些输入框按回车时自动提交表单，改为点击默认按钮
-// @version     1.8.0
+// @version     1.9.0
 // @namespace   http://www.canaansky.com/
 // @match       *://www.123wzwp.com/*
 // @match       *://www.678pan.com/*
@@ -11,6 +11,7 @@
 // @match       *://hiyp.cc/*
 // @match       *://www.sju.wang/*
 // @match       *://www.wwp5.com/*
+// @match       *://www.yousupan.com/*
 // @run-at      document-idle
 // @grant       none
 // ==/UserScript==
