@@ -2,7 +2,7 @@
 // @name        链接自动跳转
 // @author      billypon
 // @description 访问分享链接时自动跳转至下载页面或验证页面
-// @version     1.10.0
+// @version     1.11.0
 // @namespace   http://www.canaansky.com/
 // @match       *://www.123wzwp.com/*
 // @match       *://158pan.cn/*
@@ -13,6 +13,7 @@
 // @match       *://www.feemoo.com/*
 // @match       *://www.fxpan.com/*
 // @match       *://hiyp.cc/*
+// @match       *://www.pipipan.com/*
 // @match       *://www.sju.wang/*
 // @match       *://www.wwp5.com/*
 // @run-at      document-idle
@@ -134,6 +135,18 @@ switch (domain) {
 			console.debug("time", time);
 			if (time)
 				time.innerHTML = 0;
+		}
+		break;
+	case "pipipan.com":
+		[].forEach.call(document.querySelectorAll("body > a"), function (x) {
+			if (x.href.indexOf("popjump.php") > 0)
+				x.remove();
+		});
+		if (startsWith("/fs/")) {
+			var link = document.querySelector("#free_down_link");
+			console.debug("link", link);
+			if (link)
+				link.click();
 		}
 		break;
 }
