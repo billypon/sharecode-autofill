@@ -2,7 +2,7 @@
 // @name        链接自动跳转
 // @author      billypon
 // @description 访问分享链接时自动跳转至下载页面或验证页面
-// @version     1.12.0
+// @version     1.13.0
 // @namespace   http://www.canaansky.com/
 // @match       *://www.123wzwp.com/*
 // @match       *://158pan.cn/*
@@ -116,7 +116,7 @@ switch (domain) {
 		break;
 	case "feemoo.com":
 		if (startsWith()) {
-			jumpFromLink(".ndown_out");
+			jumpFromLink(document.querySelectorAll(".down_six_main_b a")[1]);
 		} else if (startsWith("/fmdown.php")) {
 			var button = document.querySelector("#combtn");
 			console.debug("button", button);
