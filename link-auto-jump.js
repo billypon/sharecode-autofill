@@ -2,13 +2,13 @@
 // @name        链接自动跳转
 // @author      billypon
 // @description 访问分享链接时自动跳转至下载页面或验证页面
-// @version     1.13.1
+// @version     1.13.2
 // @namespace   http://www.canaansky.com/
 // @match       *://www.123wzwp.com/*
 // @match       *://158pan.cn/*
 // @match       *://www.678pan.cc/*
-// @match       *://www.6pan.cc/*
 // @match       *://pan.789xz.com/*
+// @match       *://www.888pan.cc/*
 // @match       *://*.dfpan.com/*
 // @match       *://www.feemoo.com/*
 // @match       *://www.fxpan.com/*
@@ -96,8 +96,8 @@ switch (domain) {
 		break;
 	case "123wzwp.com":
 	case "678pan.cc":
-	case "6pan.cc":
 	case "789xz.com":
+	case "888pan.cc":
 	case "hiyp.cc":
 	case "sju.wang":
 	case "wwp5.com":
