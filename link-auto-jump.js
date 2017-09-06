@@ -2,7 +2,7 @@
 // @name        链接自动跳转
 // @author      billypon
 // @description 访问分享链接时自动跳转至下载页面或验证页面
-// @version     1.13.2
+// @version     1.13.3
 // @namespace   http://www.canaansky.com/
 // @match       *://www.123wzwp.com/*
 // @match       *://158pan.cn/*
@@ -16,7 +16,7 @@
 // @match       *://www.pipipan.com/*
 // @match       *://www.sju.wang/*
 // @match       *://www.wwp5.com/*
-// @match       *://www.yousupan.com/*
+// @match       *://www.yousuwp.com/*
 // @run-at      document-idle
 // @grant       none
 // ==/UserScript==
@@ -101,7 +101,7 @@ switch (domain) {
 	case "hiyp.cc":
 	case "sju.wang":
 	case "wwp5.com":
-	case "yousupan.com":
+	case "yousuwp.com":
 		if (startsWith()) {
 			jump(null);
 		}
