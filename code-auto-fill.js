@@ -5,6 +5,7 @@
 // @version     1.0.2
 // @namespace   http://www.canaansky.com/
 // @match       *://pan.baidu.com/share/*
+// @match       *://pan.baidu.com/s/*
 // @run-at      document-idle
 // @grant       none
 // ==/UserScript==
@@ -27,6 +28,6 @@ var domain = location.hostname.match(/\w+\.\w+$/)[0];
 console.debug("domain", domain);
 switch (domain) {
 	case "baidu.com":
-		fill("#accessCode", "#submitBtn");
+		fill("#fmdJvd", "#vrdwgd .g-button");
 		break;
 }
