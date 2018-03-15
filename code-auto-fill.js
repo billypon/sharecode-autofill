@@ -2,7 +2,7 @@
 // @name        提取码自动填写
 // @author      billypon
 // @description 访问分享链接时自动填写提取码并提交
-// @version     1.0.2
+// @version     1.0.3
 // @namespace   http://www.canaansky.com/
 // @match       *://pan.baidu.com/share/*
 // @match       *://pan.baidu.com/s/*
