@@ -5,8 +5,8 @@
 // @version     1.10.3
 // @namespace   http://www.canaansky.com/
 // @match       *://www.123wzwp.com/*
-// @match       *://www.678pan.cc/*
-// @match       *://www.888pan.cc/*
+// @match       *://www.678pan.net/*
+// @match       *://www.88pan.cc/*
 // @match       *://hiyp.cc/*
 // @match       *://www.sju.wang/*
 // @match       *://www.wwp5.com/*
