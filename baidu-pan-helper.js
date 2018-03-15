@@ -2,7 +2,7 @@
 // @name        百度网盘助手
 // @author      billypon
 // @description 直接下载文件及取消大文件限制
-// @version     0.9.23.4
+// @version     0.9.24.0
 // @namespace   http://www.canaansky.com/
 // @match       *://pan.baidu.com/disk/*
 // @match       *://pan.baidu.com/share/*
@@ -29,8 +29,8 @@ var wordMapHttp = {
 	'item-active':'ngb9O6',
 	'grid-view':'JKvHJMb',
 	'bar-search':'OFaPaO',
-	'default-dom':'znovGrwY',
-	'bar':'aewGrD7',
+	'default-dom':'xpX2PV',
+	'bar':'qxnX2G5',
 	'list-tools':'QDDOQB'
 };
 var wordMapHttps = {
@@ -47,8 +47,8 @@ var wordMapHttps = {
 	'item-active':'pcamXBRX',
 	'grid-view':'JKvHJMb',
 	'bar-search':'OFaPaO',
-	'default-dom':'sjjjX4Pa',
-	'bar':'bboX4KL',
+	'default-dom':'nyztJqWE',
+	'bar':'mkseJqKQ',
 	'list-tools':'QDDOQB'
 };
 var wordMap = location.protocol == 'http:' ? wordMapHttp : wordMapHttps;
