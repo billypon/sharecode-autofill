@@ -6,9 +6,9 @@
 // @namespace   http://www.canaansky.com/
 // @match       *://www.123wzwp.com/*
 // @match       *://158pan.cn/*
-// @match       *://www.678pan.cc/*
+// @match       *://www.678pan.net/*
 // @match       *://pan.789xz.com/*
-// @match       *://www.888pan.cc/*
+// @match       *://www.88pan.cc/*
 // @match       *://*.dfpan.com/*
 // @match       *://www.feemoo.com/*
 // @match       *://www.fxpan.com/*
@@ -95,9 +95,9 @@ switch (domain) {
 		}
 		break;
 	case "123wzwp.com":
-	case "678pan.cc":
+	case "678pan.net":
 	case "789xz.com":
-	case "888pan.cc":
+	case "88pan.cc":
 	case "hiyp.cc":
 	case "sju.wang":
 	case "wwp5.com":
