@@ -2,12 +2,12 @@
 // @name        闲鱼助手
 // @author      billypon
 // @description 闲鱼恢复搜索框、移除APP提示框、强制PC版页面
-// @version     1.0.1
+// @version     1.0.2
 // @namespace   http://www.canaansky.com/
 // @match       *://2.taobao.com/*
 // @match       *://s.2.taobao.com/*
 // @match       *://g.alicdn.com/*
-// @run-at      document-idle
+// @run-at      document-start
 // ==/UserScript==
 
 function restoreSearchBox() {
