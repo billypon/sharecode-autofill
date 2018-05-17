@@ -2,7 +2,7 @@
 // @name        闲鱼助手
 // @author      billypon
 // @description 闲鱼恢复搜索框、移除APP提示框、强制PC版页面
-// @version     1.0.0
+// @version     1.0.1
 // @namespace   http://www.canaansky.com/
 // @match       *://2.taobao.com/*
 // @match       *://s.2.taobao.com/*
@@ -27,7 +27,7 @@ function removeAppHints(dialog, input, button) {
 function redirectPage() {
 	var match = /itemid=(\d+)/.exec(location.search);
 	if (match) {
-		location = location.protocol + "//2.taobao.com/item.htm?id=" + match[1];
+		location.href = location.protocol + "//2.taobao.com/item.htm?id=" + match[1];
 	}
 }
 
