@@ -2,7 +2,7 @@
 // @name        用Sourcegraph浏览Github项目
 // @author      billypon
 // @description 浏览github项目的时候添加sourcegraph的链接
-// @version     1.0.0
+// @version     1.0.1
 // @namespace   http://www.canaansky.com/
 // @match       https://github.com/*/*
 // @run-at      document-idle
